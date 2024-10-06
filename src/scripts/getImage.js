@@ -1,5 +1,5 @@
 import { API_KEY_IMG, imgUrl } from "./constants/api";
-import backImg from "../imgs/city.jpg";
+import backImg from "../imgs/back.jpg";
 // https://api.unsplash.com/search/photos/?query=${keywords}&client_id=${ACCESS_KEY}
 
 export function getImg(img) {
@@ -21,9 +21,9 @@ export function getImg(img) {
   }
 
   getApiImg().then(data => {
+    console.log(data)
     if (data.results && data.results.length !== 0) {
-      document.body.style.background = `url("${data.results[1].urls.regular}") no-repeat center`;
-      document.body.style.backgroundSize = `cover`;
+      document.body.style.background = `url("${data.results[0].urls.full}") no-repeat 100% 68% /cover`;
     } else {
       document.body.style.background = `url("${backImg}") no-repeat 50% 50%`;
       document.body.style.backgroundSize = `cover`;

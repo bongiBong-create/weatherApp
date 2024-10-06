@@ -13,7 +13,7 @@ search.addEventListener("keydown", (e) => {
 
 async function render(value) {
     await app(value);
-    getImg(value)
+    await getImg(value);
 }
 
-render("Корсаков")
+render("Санкт-Петербург");
