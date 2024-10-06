@@ -1,12 +1,19 @@
 import "./style.css";
-import { getDate, getWeather } from "./helpers/date.js";
+import {app} from "./scripts/date.js"
+import { getImg } from "./scripts/getImage.js";
 
-const btn = document.querySelector(".add__city");
+const search = document.querySelector(".search");
 
-btn.addEventListener("click", getWeather);
+search.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        render(search.value);
+        search.value = "";
+    }
+})
 
-setInterval(function () {
-    getDate()
-}, 1000);
+async function render(value) {
+    await app(value);
+    getImg(value)
+}
 
-getWeather()
+render("Корсаков")
